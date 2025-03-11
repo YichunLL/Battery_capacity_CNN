@@ -7,7 +7,9 @@ import numpy as np
 app = FastAPI()
 
 # Load the trained model
-MODEL_PATH = "/Users/yichunli/Downloads/104Ah/Models/CNN_5x1_for-app.h5" 
+import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # Get current directory
+MODEL_PATH = os.path.join(BASE_DIR, "CNN_5x1_for-app.h5")  # Load model from project directory
 model = tf.keras.models.load_model(MODEL_PATH)
 
 # Define the input format
