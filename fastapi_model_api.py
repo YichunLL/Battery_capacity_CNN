@@ -5,11 +5,12 @@ import tensorflow as tf
 import numpy as np
 
 app = FastAPI()
-pp.add_middleware(
+# ✅ Fix CORS Issue
+app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allows all origins (change later for security)
+    allow_origins=["*"],  # Allows all domains (change this for security in production)
     allow_credentials=True,
-    allow_methods=["*"],  # Allows all HTTP methods (GET, POST, etc.)
+    allow_methods=["*"],  # Allows all HTTP methods
     allow_headers=["*"],  # Allows all headers
 )
 # Load the trained model
