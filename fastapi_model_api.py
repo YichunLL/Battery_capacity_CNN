@@ -1,11 +1,17 @@
-
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import tensorflow as tf
 import numpy as np
 
 app = FastAPI()
-
+pp.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins (change later for security)
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all HTTP methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allows all headers
+)
 # Load the trained model
 import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # Get current directory
